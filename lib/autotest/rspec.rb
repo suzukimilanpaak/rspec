@@ -43,7 +43,7 @@ class Autotest::Rspec < Autotest
 
   def normalize(files_to_test)
     files_to_test.keys.inject({}) do |result, filename|
-      result[File.expand_path(filename)] = []
+      result[File.expand_path(filename).gsub " ", "\\ "] = []
       result
     end
   end
